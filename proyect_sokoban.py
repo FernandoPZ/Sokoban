@@ -9,8 +9,8 @@
 5.- Caja/meta
 6.- Personaje/meta
 '''
-
-class sokoban:
+import os
+class Sokoban:
     #Variables generales
     def __init__ (self):
         pass
@@ -96,10 +96,16 @@ class sokoban:
         position_col = position_col+1
     
     def movimiento_izquierda (self):
-        
+        position_col = position_col-1
+
+    def movimiento_arriba (self):
+        position_row = position_row-1
+
+    def movimiento_abajo (self):
+        position_row = position_row+1
 
 
-
+object = Sokoban()
 print("¡Bienvenido a mi juego de sokoban!")
 print("Escoja un nivel: ")
 print("[1] Nivel 1")
@@ -109,7 +115,46 @@ print("[4] Nivel 4")
 print("[5] Nivel 5")
 print("[6] Nivel 6")
 print("[7] Nivel 7")
+eleccion=int(input("Escoja un nivel: \n"))
 
+#Opcion1
+if eleccion == 1:
+    mapa[4][4]=0
+    position_row = 4
+    position_col = 4
+    while True:
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(mapa[position_row][position_col])
+            print (smapa)
+            smapa = ""
+        print ('-----')
+        tem_col = position_col
+        tem_row = position_row
+        os.system('cls')
+        print ("Nivel 1")
+        print ("¡A jugar!")
+        print ("----------------------")
+        object.mapa1
+        print ("----------------------")
+        print ("Movimientos:    [W]   ")
+        print ("             [A][S][D]")
+        print ("[W] = Arriba")
+        print ("[S] = Abajo")
+        print ("[A] = Izquierda")
+        print ("[D] = Derecha")
+        move = input ("")
+
+        if move == 'w' and mapa[position_col+1]!=2:
+            object.movimiento_arriba
+        elif move == 's' and mapa[position_col-1]!=2:
+            object.movimiento_abajo
+        elif move == 'a' and mapa[position_row-1]!=2:
+            object.movimiento_izquierda
+        elif move == 'd' and mapa[position_row+1]!=2:
+            object.movimiento_derecha
+        
 
 smapa = ""
 for position_row in range(9):
