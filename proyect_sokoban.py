@@ -1,5 +1,3 @@
-# TODO Cambiar los iconos del juego
-# TODO Realizar el juego con clases
 '''
 0.- Personaje
 1.- Caja
@@ -91,6 +89,18 @@ class Sokoban:
                 [2,4,4,0,4,4,4,2,2],
                 [2,2,2,2,2,2,2,2,2],
                 [2,2,2,2,2,2,2,2,2]]
+    
+    #Impresion de mapas
+    def print_map (self):
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(object.mapa1 ()[position_row][position_col])
+            print (smapa)
+            smapa = ""
+        tem_row = position_row
+        tem_col = position_col
+
     #Movimientos
     def movimiento_derecha (self):
         position_col = position_col+1
@@ -119,41 +129,39 @@ eleccion=int(input("Escoja un nivel: \n"))
 
 #Opcion1
 if eleccion == 1:
-    mapa[4][4]=0
+    os.system('cls')
+    print ("Nivel 1")
+    print ("¡A jugar!")
+    print ("---------")
+    print (object.print_map())
+    object.mapa1()[4][4]=0
     position_row = 4
     position_col = 4
+    print ("---------")
+    print ("Movimientos:    [W]   ")
+    print ("             [A][S][D]")
+    print ("[W] = Arriba")
+    print ("[S] = Abajo")
+    print ("[A] = Izquierda")
+    print ("[D] = Derecha")
+    move = input ("")
     while True:
-        smapa = ""
-        for position_row in range(9):
-            for position_col in range(9):
-                smapa += str(mapa[position_row][position_col])
-            print (smapa)
-            smapa = ""
-        print ('-----')
-        tem_col = position_col
-        tem_row = position_row
-        os.system('cls')
-        print ("Nivel 1")
-        print ("¡A jugar!")
-        print ("----------------------")
-        object.mapa1
-        print ("----------------------")
-        print ("Movimientos:    [W]   ")
-        print ("             [A][S][D]")
-        print ("[W] = Arriba")
-        print ("[S] = Abajo")
-        print ("[A] = Izquierda")
-        print ("[D] = Derecha")
-        move = input ("")
-
-        if move == 'w' and mapa[position_col+1]!=2:
-            object.movimiento_arriba
-        elif move == 's' and mapa[position_col-1]!=2:
-            object.movimiento_abajo
-        elif move == 'a' and mapa[position_row-1]!=2:
-            object.movimiento_izquierda
-        elif move == 'd' and mapa[position_row+1]!=2:
-            object.movimiento_derecha
+        if move == 'w' and object.mapa1()[position_col+1]!=2:
+            object.movimiento_arriba()
+            object.mapa1()[tem_col][tem_row]=4
+            object.mapa1()[position_col][position_row]=0
+        elif move == 's' and object.mapa1()[position_col-1]!=2:
+            object.movimiento_abajo()
+            object.mapa1()[tem_col][tem_row]=4
+            object.mapa1()[position_col][position_row]=0
+        elif move == 'a' and object.mapa1()[position_row-1]!=2:
+            object.movimiento_izquierda()
+            object.mapa1()[tem_col][tem_row]=4
+            object.mapa1()[position_col][position_row]=0
+        elif move == 'd' and object.mapa1()[position_row+1]!=2:
+            object.movimiento_derecha()
+            object.mapa1()[tem_col][tem_row]=4
+            object.mapa1()[position_col][position_row]=0
         
 
 smapa = ""
