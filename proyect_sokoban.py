@@ -90,17 +90,23 @@ class Sokoban:
                 [2,2,2,2,2,2,2,2,2],
                 [2,2,2,2,2,2,2,2,2]]
     
+    #Personaje
+    def personaje1 (self):
+        object.mapa1()[4][4]=0
+        position_row = 4
+        position_col = 4
+
     #Impresion de mapas
     def print_map (self):
         smapa = ""
         for position_row in range(9):
             for position_col in range(9):
-                smapa += str(object.mapa1 ()[position_row][position_col])
+                smapa += str(object.mapa1()[position_row][position_col])
             print (smapa)
             smapa = ""
         tem_row = position_row
         tem_col = position_col
-
+    
     #Movimientos
     def movimiento_derecha (self):
         position_col = position_col+1
@@ -134,9 +140,7 @@ if eleccion == 1:
     print ("¡A jugar!")
     print ("---------")
     print (object.print_map())
-    object.mapa1()[4][4]=0
-    position_row = 4
-    position_col = 4
+    print (object.personaje1())
     print ("---------")
     print ("Movimientos:    [W]   ")
     print ("             [A][S][D]")
@@ -147,9 +151,9 @@ if eleccion == 1:
     move = input ("")
     while True:
         if move == 'w' and object.mapa1()[position_col+1]!=2:
-            object.movimiento_arriba()
-            object.mapa1()[tem_col][tem_row]=4
-            object.mapa1()[position_col][position_row]=0
+            print(object.movimiento_arriba())
+            print(object.mapa1())[tem_col][tem_row]=4
+            print(object.mapa1())[position_col][position_row]=0
         elif move == 's' and object.mapa1()[position_col-1]!=2:
             object.movimiento_abajo()
             object.mapa1()[tem_col][tem_row]=4
@@ -162,40 +166,3 @@ if eleccion == 1:
             object.movimiento_derecha()
             object.mapa1()[tem_col][tem_row]=4
             object.mapa1()[position_col][position_row]=0
-        
-
-smapa = ""
-for position_row in range(9):
-    for position_col in range(9):
-        smapa += str(mapa[position_row][position_col])
-    print (smapa)
-    smapa = ""
-print ('-----')
-mapa[1][3]=0
-position_row = 1
-position_col = 3
-while True:
-    smapa = ""
-    for position_row in range(5):
-        for position_col in range(5):
-            smapa += str(mapa[position_row][position_col])
-        print (smapa)
-        smapa = ""
-    print ('-----')
-    tem_col = position_col
-    tem_row = position_row
-    move = input('a-left, d-rigth, w-up, s-down \n')
-    if move == 'd' and mapa[position_col+1]!=2:
-        position_col = position_col+1
-    elif move == 'a' and mapa[position_col-1]!=2:
-        position_col = position_col-1
-    elif move == 's' and mapa[position_row+1]!=2:
-        position_row = position_row+1
-    elif move == 'w' and mapa[position_row-1]!=2:
-        position_row = position_row-1
-    mapa[tem_col][tem_row]=4
-    mapa[position_row][position_col]=0
-#a-left position_col = position_col-1
-#d-rigth position_col = position_col+1
-#w-up position_row = position_row-1
-#s-down position_row = position_row+1
