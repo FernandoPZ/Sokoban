@@ -45,7 +45,10 @@ class Sokoban:
                       [2,2,4,4,4,2,4,4,2],
                       [2,2,4,4,4,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
+    def imprimir_mapa2 (self):
+        print (self.crear_mapa2())
 
+    def crear_mapa3 (self):
         self.mapa3 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,4,4,2,2,2,2,2],
                       [2,4,0,1,2,2,2,2,2],
@@ -55,7 +58,10 @@ class Sokoban:
                       [2,3,3,5,3,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
+    def imprimir_mapa3 (self):
+        print (self.crear_mapa3())
 
+    def crear_mapa4 (self):
         self.mapa4 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,0,4,2,2,2,2,2],
                       [2,2,4,1,4,4,2,2,2],
@@ -65,7 +71,10 @@ class Sokoban:
                       [2,3,4,4,4,1,4,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
+    def imprimir_mapa4 (self):
+        print (self.crear_mapa4())
 
+    def crear_mapa5 (self):
         self.mapa5 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,2,4,4,4,4,2,2],
                       [2,2,2,1,1,1,4,2,2],
@@ -75,7 +84,10 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
+    def imprimir_mapa5 (self):
+        print (self.crear_mapa5())
 
+    def crear_mapa6 (self):
         self.mapa6 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,2,4,4,0,2,2,2],
                       [2,4,4,1,3,4,2,2,2],
@@ -85,7 +97,10 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
+    def imprimir_mapa6 (self):
+        print (self.crear_mapa6())
 
+    def crear_mapa7 (self):
         self.mapa7 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,2,3,3,2,2,2,2],
                       [2,2,2,4,3,2,2,2,2],
@@ -95,7 +110,9 @@ class Sokoban:
                       [2,4,4,0,4,4,4,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
-    
+    def imprimir_mapa7 (self):
+        print (self.crear_mapa7())
+
     #Personaje
     def personaje (self):
         for p in range(len(self.mapa1)):
@@ -162,5 +179,8 @@ print("[7] Nivel 7")
 eleccion = input ("Escoja un nivel: \n")
 
 #Opcion1
-if eleccion == 1:
+if eleccion == "1":
     pop.nivel1()
+
+elif eleccion == "2":
+    pop.nivel2()
