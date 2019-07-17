@@ -15,14 +15,10 @@ Nombre: proyect_sokoban
 6.- Personaje/meta
 '''
 
-import os
 class Sokoban:
 
     #Variables generales
     def __init__ (self):
-        self.mapa = []
-        self.position_col = 0
-        self.position_row = 0
         pass
     
     #Mapas
@@ -36,6 +32,8 @@ class Sokoban:
                       [2,2,2,2,3,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
+    def imprimir_mapa1 (self):
+        print (self.crear_mapa1())
 
     def crear_mapa2 (self):
         self.mapa2 = [[2,2,2,2,2,2,2,2,2],
@@ -100,30 +98,26 @@ class Sokoban:
     
     #Personaje
     def personaje (self):
-        for p in range(len(self.mapa)):
-            if self.mapa[p] == 0:
+        for p in range(len(self.mapa1)):
+            if self.mapa1[p] == 0:
                 self.position_col = p
-
-    #Impresion de mapas
-    def mostrar_mapa (self):
-        smapa = ""
-        for position_row in range(9):
-            for position_col in range(9):
-                smapa += str(self.mapa1()[position_row][position_col])
-            print (smapa)
-            smapa = ""
-        tem_row = position_row
-        tem_col = position_col
     
     #Movimientos
     def movimiento_derecha (self):
-        if mapa[self.position_col + 1] == 4:
+        if self.mapa1[self.position_col + 1] == 4:
             tem_col = self.position_col
             self.position_col = self.position_col - 1
-            mapa[tem_col] = 4
-            mapa[self.position_col] = 0
+            self.mapa1[tem_col] = 4
+            self.mapa1[self.position_col] = 0
     
-    
+    def instrucciones (self):
+        print ("Movimientos:    [W]   ")
+        print ("             [A][S][D]")
+        print ("[W] = Arriba")
+        print ("[S] = Abajo")
+        print ("[A] = Izquierda")
+        print ("[D] = Derecha")
+
     def movimiento_izquierda (self):
         position_col = position_col-1
 
@@ -133,10 +127,31 @@ class Sokoban:
     def movimiento_abajo (self):
         position_row = position_row+1
 
+    def nivel1(self):
+        self.crear_mapa1()
+        self.personaje()
+        while True:
+            print ("Nivel 1")
+            print ("¡A jugar!")
+            print ("---------")
+            self.imprimir_mapa1()
+            print ("---------")
+            self.instrucciones()
+            move = input("")
+            if move == "w":
+                self.movimiento_arriba()
+            elif move == "s":
+                self.movimiento_abajo()
+            elif move == "a":
+                self.movimiento_izquierda()
+            elif move == "d":
+                self.movimiento_derecha()
+            elif move == "r":
+                break
 
-object = Sokoban()
+pop = Sokoban()
 print("¡Bienvenido a mi juego de sokoban!")
-print("---NIVELES---")
+print("--NIVELES--")
 print("[1] Nivel 1")
 print("[2] Nivel 2")
 print("[3] Nivel 3")
@@ -148,35 +163,4 @@ eleccion = input ("Escoja un nivel: \n")
 
 #Opcion1
 if eleccion == 1:
-    os.system('cls')
-    mapa = object.crear_mapa1()
-    print ("Nivel 1")
-    print ("¡A jugar!")
-    print ("---------")
-    print (object.mostrar_mapa())
-    print (object.personaje())
-    print ("---------")
-    print ("Movimientos:    [W]   ")
-    print ("             [A][S][D]")
-    print ("[W] = Arriba")
-    print ("[S] = Abajo")
-    print ("[A] = Izquierda")
-    print ("[D] = Derecha")
-    move = input ("")
-    while True:
-        if move == 'w' and object.mapa1()[position_col+1]!=2:
-            print(object.movimiento_arriba())
-            print(object.mapa1())[tem_col][tem_row]=4
-            print(object.mapa1())[position_col][position_row]=0
-        elif move == 's' and object.mapa1()[position_col-1]!=2:
-            object.movimiento_abajo()
-            object.mapa1()[tem_col][tem_row]=4
-            object.mapa1()[position_col][position_row]=0
-        elif move == 'a' and object.mapa1()[position_row-1]!=2:
-            object.movimiento_izquierda()
-            object.mapa1()[tem_col][tem_row]=4
-            object.mapa1()[position_col][position_row]=0
-        elif move == 'd' and object.mapa1()[position_row+1]!=2:
-            object.movimiento_derecha()
-            object.mapa1()[tem_col][tem_row]=4
-            object.mapa1()[position_col][position_row]=0
+    pop.nivel1()
