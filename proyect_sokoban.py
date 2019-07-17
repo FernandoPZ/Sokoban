@@ -20,7 +20,11 @@ class Sokoban:
 
     #Variables generales
     def __init__ (self):
+        self.mapa = []
+        self.position_col = 0
+        self.position_row = 0
         pass
+    
     #Mapas
     def crear_mapa1 (self):
         self.mapa1 = [[2,2,2,2,2,2,2,2,2],
@@ -44,7 +48,6 @@ class Sokoban:
                       [2,2,4,4,4,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
 
-    def crear_mapa3 (self):
         self.mapa3 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,4,4,2,2,2,2,2],
                       [2,4,0,1,2,2,2,2,2],
@@ -55,7 +58,6 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
 
-    def create_mapa4 (self):
         self.mapa4 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,0,4,2,2,2,2,2],
                       [2,2,4,1,4,4,2,2,2],
@@ -66,7 +68,6 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
 
-    def crear_mapa5 (self):
         self.mapa5 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,2,4,4,4,4,2,2],
                       [2,2,2,1,1,1,4,2,2],
@@ -77,7 +78,6 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
 
-    def crear_mapa6 (self):
         self.mapa6 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,2,4,4,0,2,2,2],
                       [2,4,4,1,3,4,2,2,2],
@@ -88,7 +88,6 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
 
-    def crear_mapa7 (self):
         self.mapa7 = [[2,2,2,2,2,2,2,2,2],
                       [2,2,2,3,3,2,2,2,2],
                       [2,2,2,4,3,2,2,2,2],
@@ -100,17 +99,17 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2]]
     
     #Personaje
-    def personaje1 (self):
-        object.mapa1()[4][4]=0
-        position_row = 4
-        position_col = 4
+    def personaje (self):
+        for p in range(len(self.mapa)):
+            if self.mapa[p] == 0:
+                self.position_col = p
 
     #Impresion de mapas
-    def print_map (self):
+    def mostrar_mapa (self):
         smapa = ""
         for position_row in range(9):
             for position_col in range(9):
-                smapa += str(object.mapa1()[position_row][position_col])
+                smapa += str(self.mapa1()[position_row][position_col])
             print (smapa)
             smapa = ""
         tem_row = position_row
@@ -118,7 +117,12 @@ class Sokoban:
     
     #Movimientos
     def movimiento_derecha (self):
-        position_col = position_col+1
+        if mapa[self.position_col + 1] == 4:
+            tem_col = self.position_col
+            self.position_col = self.position_col - 1
+            mapa[tem_col] = 4
+            mapa[self.position_col] = 0
+    
     
     def movimiento_izquierda (self):
         position_col = position_col-1
@@ -132,7 +136,7 @@ class Sokoban:
 
 object = Sokoban()
 print("¡Bienvenido a mi juego de sokoban!")
-print("Escoja un nivel: ")
+print("---NIVELES---")
 print("[1] Nivel 1")
 print("[2] Nivel 2")
 print("[3] Nivel 3")
@@ -140,16 +144,17 @@ print("[4] Nivel 4")
 print("[5] Nivel 5")
 print("[6] Nivel 6")
 print("[7] Nivel 7")
-eleccion=int(input("Escoja un nivel: \n"))
+eleccion = input ("Escoja un nivel: \n")
 
 #Opcion1
 if eleccion == 1:
     os.system('cls')
+    mapa = object.crear_mapa1()
     print ("Nivel 1")
     print ("¡A jugar!")
     print ("---------")
-    print (object.print_map())
-    print (object.personaje1())
+    print (object.mostrar_mapa())
+    print (object.personaje())
     print ("---------")
     print ("Movimientos:    [W]   ")
     print ("             [A][S][D]")
