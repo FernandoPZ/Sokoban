@@ -33,7 +33,12 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa1 (self):
-        print (self.crear_mapa1())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa1[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     def crear_mapa2 (self):
         self.mapa2 = [[2,2,2,2,2,2,2,2,2],
@@ -46,7 +51,12 @@ class Sokoban:
                       [2,2,4,4,4,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa2 (self):
-        print (self.crear_mapa2())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa2[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     def crear_mapa3 (self):
         self.mapa3 = [[2,2,2,2,2,2,2,2,2],
@@ -59,7 +69,12 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa3 (self):
-        print (self.crear_mapa3())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa3[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     def crear_mapa4 (self):
         self.mapa4 = [[2,2,2,2,2,2,2,2,2],
@@ -72,7 +87,12 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa4 (self):
-        print (self.crear_mapa4())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa4[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     def crear_mapa5 (self):
         self.mapa5 = [[2,2,2,2,2,2,2,2,2],
@@ -85,7 +105,12 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa5 (self):
-        print (self.crear_mapa5())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa5[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     def crear_mapa6 (self):
         self.mapa6 = [[2,2,2,2,2,2,2,2,2],
@@ -98,7 +123,12 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa6 (self):
-        print (self.crear_mapa6())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa6[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     def crear_mapa7 (self):
         self.mapa7 = [[2,2,2,2,2,2,2,2,2],
@@ -111,7 +141,12 @@ class Sokoban:
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
     def imprimir_mapa7 (self):
-        print (self.crear_mapa7())
+        smapa = ""
+        for position_row in range(9):
+            for position_col in range(9):
+                smapa += str(self.mapa7[position_row][position_col])
+            print (smapa)
+            smapa = ""
 
     #Personaje
     def personaje (self):
