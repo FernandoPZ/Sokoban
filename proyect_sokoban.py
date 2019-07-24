@@ -202,16 +202,17 @@ class Sokoban:
             self.mapa1[self.position_col] = 0
 
     def movimiento_arriba (self):
+        #muro
         if mapa[per_col-1][per_row]==2:
             print("hay una pared, no puedes pasar")
-
+        #pasillo
         elif mapa[per_col][per_row]==6 and mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==4:
             mapa[per_col][per_row]=3
             mapa[per_col-2][per_row]=1
             per_col=per_col-1
             mapa[per_col][per_row]=0
             imprimir_mapa1()
-
+        #algo?
         elif mapa[per_col][per_row]==6 and mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==3:
             mapa[per_col][per_row]=3
             mapa[per_col-2][per_row]=5
