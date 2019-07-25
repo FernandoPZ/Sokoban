@@ -33,9 +33,9 @@ class Sokoban:
                       [2,2,2,2,3,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2],
                       [2,2,2,2,2,2,2,2,2]]
-    def imprimir_mapa1 (self):
+    def imprimir_mapa (self):
         smapa = ""
-        for position_col in self.mapa1:
+        for position_col in mapa:
             for position_row in position_col:
                 smapa = smapa+" "+str(position_row)
             print (smapa)
@@ -159,7 +159,7 @@ class Sokoban:
     '''
 
     #Personaje
-    def personaje1 (self):
+    def personaje (self):
         contador_col=0
         contador_row=0
         per_col=0
@@ -211,19 +211,19 @@ class Sokoban:
             mapa[per_col-2][per_row]=1
             per_col=per_col-1
             mapa[per_col][per_row]=0
-            imprimir_mapa1()
+            print (self.imprimir_mapa())
         #algo?
         elif mapa[per_col][per_row]==6 and mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==3:
             mapa[per_col][per_row]=3
             mapa[per_col-2][per_row]=5
             per_col=per_col-1
             mapa[per_col][per_row]=0
-            imprimir_mapa1()
+            print (self.imprimir_mapa())
     
-        elif mapa[per_col][monoY]==6 and mapa[per_col-1][monoY]==3:
-            mapa[per_col][monoY]=3
+        elif mapa[per_col][per_row]==6 and mapa[per_col-1][per_row]==3:
+            mapa[per_col][per_row]=3
             per_col=per_col-1
-            mapa[per_col][monoY]=6
+            mapa[per_col][per_row]=6
             mapaimpreso()
         
         elif mapa[monoX][monoY]==6 and mapa[monoX-1][monoY]==5 and mapa[monoX-2][monoY]==3:
@@ -296,16 +296,16 @@ class Sokoban:
             self.mapa1[tem_row] = 4
             self.mapa1[self.position_row] = 0
 
-    def nivel1(self):
+    def jugar (self):
         os. system ("cls")
-        self.personaje1()
-        self.crear_mapa1()
+        self.personaje()
+        mapa
         while True:
             os. system ("cls")
-            print (" Nivel 1 ")
+            print (" Nivel ",eleccion)
             print ("¡A jugar!")
             print ("---------")
-            self.imprimir_mapa1()
+            self.imprimir_mapa()
             print ("---------")
             self.instrucciones()
             move = input("")
@@ -335,10 +335,36 @@ eleccion = input ("Escoja un nivel: \n")
 #Opcion1
 if eleccion == "1":
     mapa = pop.crear_mapa1()
-    pop.nivel1()
+    pop.imprimir_mapa()
+    pop.jugar()
 
 elif eleccion == "2":
-    pop.nivel2()
+    mapa = pop.crear_mapa2()
+    pop.imprimir_mapa()
+    pop.jugar()
 
 elif eleccion == "3":
-    pop.nivel3()
+    mapa = pop.crear_mapa3()
+    pop.imprimir_mapa()
+    pop.jugar()
+
+elif eleccion == "4":
+    mapa = pop.crear_mapa4()
+    pop.imprimir_mapa()
+    pop.jugar()
+
+elif eleccion == "5":
+    mapa = pop.crear_mapa5()
+    pop.imprimir_mapa()
+    pop.jugar()
+
+elif eleccion == "6":
+    mapa = pop.crear_mapa6()
+    pop.imprimir_mapa()
+    pop.jugar()
+
+elif eleccion == "7":
+    mapa = pop.crear_mapa7()
+    pop.imprimir_mapa()
+    pop.jugar()
+ 
