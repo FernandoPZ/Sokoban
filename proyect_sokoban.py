@@ -22,6 +22,17 @@ class Sokoban:
     def __init__ (self):
         pass
     
+    #Mapa base
+    def mapa (self):
+        self.mapap = [[2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2],
+                      [2,2,2,2,2,2,2,2,2]]
     #Mapas
     def crear_mapa1 (self):
         self.mapa1 = [[2,2,2,2,2,2,2,2,2],
@@ -185,22 +196,6 @@ class Sokoban:
         print ("[D] = Derecha")
     
     #Movimientos
-    def movimiento_derecha (self):
-        if self.mapa1[self.position_col - 1] == 4:
-            tem_col = self.position_col
-            self.position_col = self.position_col - 1
-            self.mapa1[tem_col] = 4
-            self.mapa1[self.position_col] = 0
-        elif self.mapa1[self.position_col - 1] == 1:
-            tem_col = self.position_col
-
-    def movimiento_izquierda (self):
-        if self.mapa1[self.position_col + 1] == 4:
-            tem_col = self.position_col
-            self.position_col = self.position_col + 1
-            self.mapa1[tem_col] = 4
-            self.mapa1[self.position_col] = 0
-
     def movimiento_arriba (self):
         #muro
         if mapa[per_col-1][per_row]==2:
@@ -224,77 +219,92 @@ class Sokoban:
             mapa[per_col][per_row]=3
             per_col=per_col-1
             mapa[per_col][per_row]=6
-            mapaimpreso()
+            print (self.imprimir_mapa())
         
-        elif mapa[monoX][monoY]==6 and mapa[monoX-1][monoY]==5 and mapa[monoX-2][monoY]==3:
-            mapa[monoX][monoY]=3
-            mapa[monoX-2][monoY]=5
-            monoX=monoX-1
-            mapa[monoX][monoY]=6
-            mapaimpreso()
+        elif mapa[per_col][per_row]==6 and mapa[per_col-1][per_row]==5 and mapa[per_col-2][per_row]==3:
+            mapa[per_col][per_row]=3
+            mapa[per_col-2][per_row]=5
+            per_col=per_col-1
+            mapa[per_col][per_row]=6
+            print (self.imprimir_mapa())
         
-        elif mapa[monoX][monoY]==6 and mapa[monoX-1][monoY]==4:
-            mapa[monoX][monoY]=3
-            monoX=monoX-1
-            mapa[monoX][monoY]=0
-            mapaimpreso()
+        elif mapa[per_col][per_row]==6 and mapa[per_col-1][per_row]==4:
+            mapa[per_col][per_row]=3
+            per_col=per_col-1
+            mapa[per_col][per_row]=0
+            print (self.imprimir_mapa())
        
-        elif mapa[monoX-1][monoY]==4:
-            mapa[monoX][monoY]=4
-            monoX=monoX-1
-            mapa[monoX][monoY]=0
-            mapaimpreso()   
+        elif mapa[per_col-1][per_row]==4:
+            mapa[per_col][per_row]=4
+            per_col=per_col-1
+            mapa[per_col][per_row]=0
+            print (self.imprimir_mapa())   
 
-        elif mapa[monoX-1][monoY]==3:
-            mapa[monoX][monoY]=4
-            monoX=monoX-1
-            mapa[monoX][monoY]=6
-            mapaimpreso()
+        elif mapa[per_col-1][per_row]==3:
+            mapa[per_col][per_row]=4
+            per_col=per_col-1
+            mapa[per_col][per_row]=6
+            print (self.imprimir_mapa())
 
-        elif mapa[monoX-1][monoY]==1 and mapa[monoX-2][monoY]==4:
-            mapa[monoX][monoY]=4
-            mapa[monoX-2][monoY]=1
-            monoX=monoX-1
-            mapa[monoX][monoY]=0
-            mapaimpreso()
+        elif mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==4:
+            mapa[per_col][per_row]=4
+            mapa[per_col-2][per_row]=1
+            per_col=per_col-1
+            mapa[per_col][per_row]=0
+            print (self.imprimir_mapa())
 
-        elif mapa[monoX-1][monoY]==1 and mapa[monoX-2][monoY]==2:
-            print ("No puedes atravesar el muro por ti mismo, ¿Qué te hace pensar que con una caja lo haras?")
+        elif mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==2:
+            print ("Obstaculo enfrente")
 
-        elif mapa[monoX-1][monoY]==1 and mapa[monoX-2][monoY]==3:
-            mapa[monoX][monoY]=4
-            mapa[monoX-2][monoY]=5
-            monoX=monoX-1
-            mapa[monoX][monoY]=0
-            mapaimpreso()
+        elif mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==3:
+            mapa[per_col][per_row]=4
+            mapa[per_col-2][per_row]=5
+            per_col=per_col-1
+            mapa[per_col][per_row]=0
+            print (self.imprimir_mapa())
         
-        elif mapa[monoX-1][monoY]==1 and mapa[monoX-2][monoY]==1:
-            print("Con que trabajos mueves una jajaja")
+        elif mapa[per_col-1][per_row]==1 and mapa[per_col-2][per_row]==1:
+            print("No puedes empujar 2 cajas")
 
-        elif mapa[monoX-1][monoY]==5 and mapa[monoX-2][monoY]==3:
-            mapa[monoX][monoY]=4
-            mapa[monoX-2][monoY]=5
-            monoX=monoX-1
-            mapa[monoX][monoY]=6
-            mapaimpreso()
+        elif mapa[per_col-1][per_row]==5 and mapa[per_col-2][per_row]==3:
+            mapa[per_col][per_row]=4
+            mapa[per_col-2][per_row]=5
+            per_col=per_col-1
+            mapa[per_col][per_row]=6
+            print (self.imprimir_mapa())
 
-        elif mapa[monoX-1][monoY]==5 and mapa[monoX-2][monoY]==4:
-            mapa[monoX][monoY]=3
-            mapa[monoX-2][monoY]=1
-            monoX=monoX-1
-            mapa[monoX][monoY]=6
-            mapaimpreso()
+        elif mapa[per_col-1][per_row]==5 and mapa[per_col-2][per_row]==4:
+            mapa[per_col][per_row]=3
+            mapa[per_col-2][per_row]=1
+            per_col=per_col-1
+            mapa[per_col][per_row]=6
+            print (self.imprimir_mapa())
 
-        elif mapa[monoX-1][monoY]==5 and mapa[monoX-2][monoY]==2:
-            print("No puedes atravesar los muros... aún ;)")
+        elif mapa[per_col-1][per_row]==5 and mapa[per_col-2][per_row]==2:
+            print("hay una pared, no puedes pasar")
         
-#alto
     def movimiento_abajo (self):
         if self.mapa1[self.position_row + 1] == 4:
             tem_row = self.position_row
             self.position_row = self.position_row + 1
             self.mapa1[tem_row] = 4
             self.mapa1[self.position_row] = 0
+
+    def movimiento_derecha (self):
+        if self.mapa1[self.position_col - 1] == 4:
+            tem_col = self.position_col
+            self.position_col = self.position_col - 1
+            self.mapa1[tem_col] = 4
+            self.mapa1[self.position_col] = 0
+        elif self.mapa1[self.position_col - 1] == 1:
+            tem_col = self.position_col
+
+    def movimiento_izquierda (self):
+        if self.mapa1[self.position_col + 1] == 4:
+            tem_col = self.position_col
+            self.position_col = self.position_col + 1
+            self.mapa1[tem_col] = 4
+            self.mapa1[self.position_col] = 0
 
     def jugar (self):
         os. system ("cls")
