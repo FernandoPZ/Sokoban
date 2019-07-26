@@ -432,9 +432,10 @@ class Sokoban:
                 else:
                     print ("Oprimiste la tecla equivocada")
 
-        #Comprobación para terminar el nivel
-        if mapa1[0].count(1)==0 and mapa1[1].count(1)==0 and mapa1[2].count(1)==0 and mapa1[3].count(1)==0 and mapa1[4].count(1)==0:
-            print("Nivel completado")
+            #Comprobación para terminar el nivel
+            if mapa1[0].count(1)==0 and mapa1[1].count(1)==0 and mapa1[2].count(1)==0 and mapa1[3].count(1)==0 and mapa1[4].count(1)==0:
+                print("¡¡¡Felicidades!!!")
+                print("¡¡¡Terminaste el nivel 1!!!")
 
 
 pop = Sokoban()
