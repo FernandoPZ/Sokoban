@@ -18,7 +18,6 @@ Nombre: proyect_sokoban
 import os
 class Sokoban:
 
-    #Variables generales
     def __init__ (self):
         pass
     
@@ -204,7 +203,68 @@ class Sokoban:
         
     def movimiento_abajo1 (self):
         if self.mapa1[per_col+1][per_row]==2:
-            print("hay una pared, no puedes pasar") 
+            print("hay una pared, no puedes pasar")
+
+        elif self.mapa1[per_col+1][per_row]==5 and self.mapa1[per_col+2][per_row]==2:
+            print("Hay una pared, no puedes pasar")
+
+        elif self.mapa1[per_col+1][per_row]==1 and self.mapa1[per_col+2][per_row]==1:
+            print("No puedes empujar 2 cajas")
+
+        elif self.mapa1[per_col+1][per_row]==1 and self.mapa1[per_col+2][per_row]==2:
+            print ("Obstaculo enfrente")
+
+        elif self.mapa1[per_col+1][per_row]==4:
+            self.mapa1[per_col][per_row]=4
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1()) 
+
+        elif self.mapa1[per_col+1][per_row]==3:
+            self.mapa1[per_col][per_row]=4
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col+1][per_row]==3:
+            self.mapa1[per_col][per_row]=3
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col+1][per_row]==4:
+            self.mapa1[per_col][per_row]=3
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col+1][per_row]==1 and self.mapa1[per_col+2][per_row]==4:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col+2][per_row]=1
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col+1][per_row]==1 and self.mapa1[per_col+2][per_row]==3:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col+2][per_row]=5
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col+1][per_row]==5 and self.mapa1[per_col+2][per_row]==3:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col+2][per_row]=5
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col+1][per_row]==5 and self.mapa1[per_col+2][per_row]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col+2][per_row]=1
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
 
         elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col+1][per_row]==1 and self.mapa1[per_col+2][per_row]==4:
             self.mapa1[per_col][per_row]=3
@@ -213,94 +273,199 @@ class Sokoban:
             self.mapa1[per_col][per_row]=0
             print (self.imprimir_mapa1())   
 
-
         elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col+1][per_row]==1 and self.mapa1[per_col+2][per_row]==3:
             self.mapa1[per_col][per_row]=3
             self.mapa1[per_col+2][per_row]=5
             per_col=per_col+1
             self.mapa1[per_col][per_row]=0
             print (self.imprimir_mapa1())     
-
-        elif self.mapa1[monoX][monoY]==6 and self.mapa1[monoX+1][monoY]==3:
-            self.mapa1[monoX][monoY]=3
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=6
-            print (self.imprimir_mapa1())
         
-        elif self.mapa1[monoX][monoY]==6 and self.mapa1[monoX+1][monoY]==5 and self.mapa1[monoX+2][monoY]==3:
-            self.mapa1[monoX][monoY]=3
-            self.mapa1[monoX+2][monoY]=5
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=6
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col+1][per_row]==5 and self.mapa1[per_col+2][per_row]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col+2][per_row]=5
+            per_col=per_col+1
+            self.mapa1[per_col][per_row]=6
             print (self.imprimir_mapa1())
-        
-        elif self.mapa1[monoX][monoY]==6 and self.mapa1[monoX+1][monoY]==4:
-            self.mapa1[monoX][monoY]=3
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=0
-            print (self.imprimir_mapa1())
-       
-        elif self.mapa1[monoX+1][monoY]==4:
-            self.mapa1[monoX][monoY]=4
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=0
-            print (self.imprimir_mapa1()) 
-
-        elif self.mapa1[monoX+1][monoY]==3:
-            self.mapa1[monoX][monoY]=4
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=6
-            print (self.imprimir_mapa1())
-
-        elif self.mapa1[monoX+1][monoY]==1 and self.mapa1[monoX+2][monoY]==4:
-            self.mapa1[monoX][monoY]=4
-            self.mapa1[monoX+2][monoY]=1
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=0
-            print (self.imprimir_mapa1())
-
-        elif self.mapa1[monoX+1][monoY]==1 and self.mapa1[monoX+2][monoY]==2:
-            print ("No puedes atravesar el muro por ti mismo, ¿Qué te hace pensar que con una caja lo haras?")
-
-        elif self.mapa1[monoX+1][monoY]==1 and self.mapa1[monoX+2][monoY]==3:
-            self.mapa1[monoX][monoY]=4
-            self.mapa1[monoX+2][monoY]=5
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=0
-            print (self.imprimir_mapa1())
-        
-        elif self.mapa1[monoX+1][monoY]==1 and self.mapa1[monoX+2][monoY]==1:
-            print("Con que trabajos mueves una jajaja")
-
-        elif self.mapa1[monoX+1][monoY]==5 and self.mapa1[monoX+2][monoY]==3:
-            self.mapa1[monoX][monoY]=4
-            self.mapa1[monoX+2][monoY]=5
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=6
-            print (self.imprimir_mapa1())
-
-        elif self.mapa1[monoX+1][monoY]==5 and self.mapa1[monoX+2][monoY]==4:
-            self.mapa1[monoX][monoY]=3
-            self.mapa1[monoX+2][monoY]=1
-            monoX=monoX+1
-            self.mapa1[monoX][monoY]=6
-            print (self.imprimir_mapa1())
-
-        elif self.mapa1[monoX+1][monoY]==5 and self.mapa1[monoX+2][monoY]==2:
-            print("No puedes atravesar los muros... aún ;)")
 
     def movimiento_derecha1 (self):
         if self.mapa1[per_col][per_row+1]==2:
             print("hay una pared, no puedes pasar")
 
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=1
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())     
+
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=5
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())     
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==3:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=5
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==4:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            mapaimpreso()
+       
+        elif self.mapa1[per_col][per_row+1]==4:
+            self.mapa1[per_col][per_row]=4
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())  
+
+        elif self.mapa1[per_col][per_row+1]==3:
+            self.mapa1[per_col][per_row]=4
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
+
+        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==4:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col][per_row+2]=1
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            mapaimpreso()
+
+        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==2:
+            print ("No puedes atravesar el muro por ti mismo, ¿Qué te hace pensar que con una caja lo haras?")
+
+        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==3:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col][per_row+2]=5
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            mapaimpreso()
+        
+        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==1:
+            print("Con que trabajos mueves una jajaja")
+
+        elif self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==3:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col][per_row+2]=5
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
+
+        elif self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=1
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
+
+        elif self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==2:
+            print("No puedes atravesar los muros... aún ;)")
+
     def movimiento_izquierda1 (self):
         if self.mapa1[per_col][per_row-1]==2:
             print("hay una pared, no puedes pasar")
 
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=5
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())  
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=1
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())      
+
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=5
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())      
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==3:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==4:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+       
+        elif self.mapa1[per_col][per_row-1]==4:
+            self.mapa1[per_col][per_row]=4
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())   
+
+        elif self.mapa1[per_col][per_row-1]==3:
+            self.mapa1[per_col][per_row]=4
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==4:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col][per_row-2]=1
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==2:
+            print ("No puedes atravesar el muro por ti mismo, ¿Qué te hace pensar que con una caja lo haras?")
+
+        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==3:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col][per_row-2]=5
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+        
+        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==1:
+            print("Con que trabajos mueves una jajaja")
+
+        elif self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==3:
+            self.mapa1[per_col][per_row]=4
+            self.mapa1[per_col][per_row-2]=5
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=1
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+
+        elif self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==2:
+            print("No puedes atravesar los muros... aún ;)")
+
+
     def nivel1 (self):
         os. system ("cls")
         self.personaje()
-        mapa
+        self.mapa1
         while True:
             os. system ("cls")
             print (" Nivel ",eleccion)
@@ -331,16 +496,16 @@ eleccion = input ("Escoja un nivel: \n")
 
 #Opcion1
 if eleccion == "1":
-    mapa = pop.crear_mapa1()
+    self.mapa1 = pop.crear_mapa1()
     pop.imprimir_mapa()
     pop.nivel1()
 
 elif eleccion == "2":
-    mapa = pop.crear_mapa2()
+    self.mapa1 = pop.crear_mapa2()
     pop.imprimir_mapa()
     pop.nivel2()
 
 elif eleccion == "3":
-    mapa = pop.crear_mapa3()
+    self.mapa1 = pop.crear_mapa3()
     pop.imprimir_mapa()
     pop.nivel3()
