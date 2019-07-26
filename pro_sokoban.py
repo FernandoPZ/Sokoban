@@ -291,40 +291,15 @@ class Sokoban:
         if self.mapa1[per_col][per_row+1]==2:
             print("hay una pared, no puedes pasar")
 
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==4:
-            self.mapa1[per_col][per_row]=3
-            self.mapa1[per_col][per_row+2]=1
-            per_row=per_row+1
-            self.mapa1[per_col][per_row]=0
-            print (self.imprimir_mapa1())     
+        elif self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==2:
+            print("Hay una pared, no puedes pasar")
 
+        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==1:
+            print("No puedes empujar 2 cajas")
 
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==3:
-            self.mapa1[per_col][per_row]=3
-            self.mapa1[per_col][per_row+2]=5
-            per_row=per_row+1
-            self.mapa1[per_col][per_row]=0
-            print (self.imprimir_mapa1())     
+        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==2:
+            print ("Obstaculo enfrente")
 
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==3:
-            self.mapa1[per_col][per_row]=3
-            per_row=per_row+1
-            self.mapa1[per_col][per_row]=6
-            mapaimpreso()
-        
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==3:
-            self.mapa1[per_col][per_row]=3
-            self.mapa1[per_col][per_row+2]=5
-            per_row=per_row+1
-            self.mapa1[per_col][per_row]=6
-            mapaimpreso()
-        
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==4:
-            self.mapa1[per_col][per_row]=3
-            per_row=per_row+1
-            self.mapa1[per_col][per_row]=0
-            mapaimpreso()
-       
         elif self.mapa1[per_col][per_row+1]==4:
             self.mapa1[per_col][per_row]=4
             per_row=per_row+1
@@ -336,6 +311,18 @@ class Sokoban:
             per_row=per_row+1
             self.mapa1[per_col][per_row]=6
             mapaimpreso()
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==4:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            mapaimpreso()
+       
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==3:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
 
         elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==4:
             self.mapa1[per_col][per_row]=4
@@ -344,18 +331,12 @@ class Sokoban:
             self.mapa1[per_col][per_row]=0
             mapaimpreso()
 
-        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==2:
-            print ("No puedes atravesar el muro por ti mismo, ¿Qué te hace pensar que con una caja lo haras?")
-
         elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==3:
             self.mapa1[per_col][per_row]=4
             self.mapa1[per_col][per_row+2]=5
             per_row=per_row+1
             self.mapa1[per_col][per_row]=0
             mapaimpreso()
-        
-        elif self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==1:
-            print("Con que trabajos mueves una jajaja")
 
         elif self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==3:
             self.mapa1[per_col][per_row]=4
@@ -371,47 +352,40 @@ class Sokoban:
             self.mapa1[per_col][per_row]=6
             mapaimpreso()
 
-        elif self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==2:
-            print("No puedes atravesar los muros... aún ;)")
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=1
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())     
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==1 and self.mapa1[per_col][per_row+2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=5
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())     
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row+1]==5 and self.mapa1[per_col][per_row+2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row+2]=5
+            per_row=per_row+1
+            self.mapa1[per_col][per_row]=6
+            mapaimpreso()
 
     def movimiento_izquierda1 (self):
         if self.mapa1[per_col][per_row-1]==2:
             print("hay una pared, no puedes pasar")
 
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==3:
-            self.mapa1[per_col][per_row]=3
-            self.mapa1[per_col][per_row-2]=5
-            per_row=per_row-1
-            self.mapa1[per_col][per_row]=6
-            print (self.imprimir_mapa1())  
+        elif self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==2:
+            print("hay una pared, no puedes pasar")
 
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==4:
-            self.mapa1[per_col][per_row]=3
-            self.mapa1[per_col][per_row-2]=1
-            per_row=per_row-1
-            self.mapa1[per_col][per_row]=0
-            print (self.imprimir_mapa1())      
+        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==1:
+            print("No puedes mover 2 cajas")
 
+        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==2:
+            print ("Obstaculo enfrente")
 
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==3:
-            self.mapa1[per_col][per_row]=3
-            self.mapa1[per_col][per_row-2]=5
-            per_row=per_row-1
-            self.mapa1[per_col][per_row]=0
-            print (self.imprimir_mapa1())      
-
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==3:
-            self.mapa1[per_col][per_row]=3
-            per_row=per_row-1
-            self.mapa1[per_col][per_row]=6
-            print (self.imprimir_mapa1())
-        
-        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==4:
-            self.mapa1[per_col][per_row]=3
-            per_row=per_row-1
-            self.mapa1[per_col][per_row]=0
-            print (self.imprimir_mapa1())
-       
         elif self.mapa1[per_col][per_row-1]==4:
             self.mapa1[per_col][per_row]=4
             per_row=per_row-1
@@ -424,6 +398,18 @@ class Sokoban:
             self.mapa1[per_col][per_row]=6
             print (self.imprimir_mapa1())
 
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==3:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())
+        
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==4:
+            self.mapa1[per_col][per_row]=3
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
+
         elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==4:
             self.mapa1[per_col][per_row]=4
             self.mapa1[per_col][per_row-2]=1
@@ -431,18 +417,12 @@ class Sokoban:
             self.mapa1[per_col][per_row]=0
             print (self.imprimir_mapa1())
 
-        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==2:
-            print ("No puedes atravesar el muro por ti mismo, ¿Qué te hace pensar que con una caja lo haras?")
-
         elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==3:
             self.mapa1[per_col][per_row]=4
             self.mapa1[per_col][per_row-2]=5
             per_row=per_row-1
             self.mapa1[per_col][per_row]=0
             print (self.imprimir_mapa1())
-        
-        elif self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==1:
-            print("Con que trabajos mueves una jajaja")
 
         elif self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==3:
             self.mapa1[per_col][per_row]=4
@@ -458,8 +438,26 @@ class Sokoban:
             self.mapa1[per_col][per_row]=6
             print (self.imprimir_mapa1())
 
-        elif self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==2:
-            print("No puedes atravesar los muros... aún ;)")
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==5 and self.mapa1[per_col][per_row-2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=5
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=6
+            print (self.imprimir_mapa1())  
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==4:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=1
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())      
+
+        elif self.mapa1[per_col][per_row]==6 and self.mapa1[per_col][per_row-1]==1 and self.mapa1[per_col][per_row-2]==3:
+            self.mapa1[per_col][per_row]=3
+            self.mapa1[per_col][per_row-2]=5
+            per_row=per_row-1
+            self.mapa1[per_col][per_row]=0
+            print (self.imprimir_mapa1())
 
 
     def nivel1 (self):
