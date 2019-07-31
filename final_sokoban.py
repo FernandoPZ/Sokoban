@@ -27,6 +27,7 @@ class Sokoban:
     #Primer nivel
     def nivel1 (self):
         #Mapa
+        pop = Sokoban()
         mapa = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
                 [chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35),chr(35)],
                 [chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
@@ -75,7 +76,7 @@ class Sokoban:
 
         while True:
                 os. system ("cls")
-                print (" Nivel 1")
+                print (" Nivel ",eleccion)
                 print ("¡A jugar!")
                 print ("---------")
                 imprimir_mapa()
@@ -84,6 +85,7 @@ class Sokoban:
                 move = msvcrt.getch()
                 move1 = ord(move)
                 move = chr(move1)
+                
                 if move == "w":
                     if mapa[per_col-1][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
@@ -405,11 +407,7 @@ class Sokoban:
 
                 else:
                     print ("Oprimiste la tecla equivocada")
-
-                #Finalizador
-                if mapa[0].count(1)==0 and mapa[1].count(1)==0 and mapa[2].count(1)==0 and mapa[3].count(1)==0 and mapa[4].count(1)==0:
-                    print("¡¡¡Felicidades!!!")
-                    print("¡¡¡Terminaste el nivel 1!!!")
+                    time.sleep(1)
 
     #Segundo nivel
     def nivel2 (self):
@@ -462,367 +460,338 @@ class Sokoban:
 
         while True:
                 os. system ("cls")
-                print (" Nivel 2")
+                print (" Nivel ",eleccion)
                 print ("¡A jugar!")
                 print ("---------")
                 imprimir_mapa()
                 print ("---------")
                 instrucciones()
-                move = input("")
+                move = msvcrt.getch()
+                move1 = ord(move)
+                move = chr(move1)
+                
                 if move == "w":
                     if mapa[per_col-1][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(78):
                         print("No puedes empujar chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col-1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
                 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(78)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-chr(78)
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(78)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(78)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                 elif move == "s":
                     if mapa[per_col+1][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(35):
                         print("Hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(78):
                         print("No puedes empujar chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa()) 
 
                     elif mapa[per_col+1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col+2][per_row]=chr(78)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(78)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(78)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())     
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                 elif move == "a":
                     if mapa[per_col][per_row-1]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(78):
                         print("No puedes mover chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col][per_row-1]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-chr(78)]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row-2]=chr(78)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(78)
                         per_row=per_row-chr(78)
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())  
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(78)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())      
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                 elif move == "d":
                     if mapa[per_col][per_row+1]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(78):
                         print("No puedes mover chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col][per_row+1]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row+2]=chr(78)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(78)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())  
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(78)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())      
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                 elif move == "r":
                     break
 
                 else:
                     print ("Oprimiste la tecla equivocada")
-
-                #Finalizador
-                if mapa[0].count(1)==0 and mapa[1].count(1)==0 and mapa[2].count(1)==0 and mapa[3].count(1)==0 and mapa[4].count(1)==0:
-                    print("¡¡¡Felicidades!!!")
-                    print("¡¡¡Terminaste el nivel 1!!!")
+                    time.sleep(1)
 
     #Tercer nivel
     def nivel3 (self):
@@ -875,367 +844,338 @@ class Sokoban:
 
         while True:
                 os. system ("cls")
-                print (" Nivel 3")
+                print (" Nivel ",eleccion)
                 print ("¡A jugar!")
                 print ("---------")
                 imprimir_mapa()
                 print ("---------")
                 instrucciones()
-                move = input("")
+                move = msvcrt.getch()
+                move1 = ord(move)
+                move = chr(move1)
+                
                 if move == "w":
                     if mapa[per_col-1][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(78):
                         print("No puedes empujar chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col-1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col-1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
                 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(78)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-chr(78)
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(78)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(78)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col-2][per_row]=chr(77)
                         per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                 elif move == "s":
                     if mapa[per_col+1][per_row]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(35):
                         print("Hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(78):
                         print("No puedes empujar chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col+1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa()) 
 
                     elif mapa[per_col+1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col+2][per_row]=chr(78)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(78)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(78)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())     
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col+2][per_row]=chr(77)
                         per_col=per_col+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                 elif move == "a":
                     if mapa[per_col][per_row-1]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(78):
                         print("No puedes mover chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row-1]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col][per_row-1]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-chr(78)]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row-2]=chr(78)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(78)
                         per_row=per_row-chr(78)
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())  
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(78)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())      
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row-2]=chr(77)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                 elif move == "d":
                     if mapa[per_col][per_row+1]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(35):
                         print("hay una pared, no puedes pasar")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(78):
                         print("No puedes mover chr(35) cajas")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(35):
                         print ("Obstaculo enfrente")
+                        time.sleep(1)
 
                     elif mapa[per_col][per_row+1]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())   
 
                     elif mapa[per_col][per_row+1]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
                     
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(32):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row+2]=chr(78)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(78)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(48)
-                        print (imprimir_mapa())  
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(78)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())      
 
                     elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(88):
                         mapa[per_col][per_row]=chr(88)
                         mapa[per_col][per_row+2]=chr(77)
                         per_row=per_row+1
                         mapa[per_col][per_row]=chr(79)
-                        print (imprimir_mapa())
 
                 elif move == "r":
                     break
 
                 else:
                     print ("Oprimiste la tecla equivocada")
-
-                #Finalizador
-                if mapa[0].count(1)==0 and mapa[1].count(1)==0 and mapa[2].count(1)==0 and mapa[3].count(1)==0 and mapa[4].count(1)==0:
-                    print("¡¡¡Felicidades!!!")
-                    print("¡¡¡Terminaste el nivel 1!!!")
+                    time.sleep(1)
 
 pop = Sokoban()
 os.system("cls")
