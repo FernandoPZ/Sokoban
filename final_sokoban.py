@@ -138,7 +138,7 @@ class Sokoban:
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(77)
-                        per_col=per_col-chr(78)
+                        per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(32):
@@ -408,6 +408,20 @@ class Sokoban:
                 else:
                     print ("Oprimiste la tecla equivocada")
                     time.sleep(1)
+                            
+                if mapa[0].count(chr(78))==0 and mapa[1].count(chr(78))==0 and mapa[2].count(chr(78))==0 and mapa[3].count(chr(78))==0 and mapa[4].count(chr(78))==0 and mapa[0].count(chr(78))==0 and mapa[5].count(chr(78))==0 and mapa[6].count(chr(78))==0 and mapa[7].count(chr(78))==0 and mapa[8].count(chr(78))==0:
+                    os. system ("cls")
+                    print (" Nivel ",eleccion)
+                    print ("¡A jugar!")
+                    print ("---------")
+                    imprimir_mapa()
+                    print ("---------")
+                    instrucciones()
+                    print ("¡¡¡FELICIDADES!!!")
+                    print ("Nivel",eleccion)
+                    print ("Completado")
+                    time.sleep(2)
+                    break
 
     #Segundo nivel
     def nivel2 (self):
@@ -522,7 +536,7 @@ class Sokoban:
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
                         mapa[per_col][per_row]=chr(32)
                         mapa[per_col-2][per_row]=chr(77)
-                        per_col=per_col-chr(78)
+                        per_col=per_col-1
                         mapa[per_col][per_row]=chr(48)
 
                     elif mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(32):
@@ -792,6 +806,20 @@ class Sokoban:
                 else:
                     print ("Oprimiste la tecla equivocada")
                     time.sleep(1)
+                
+                if mapa[0].count(chr(78))==0 and mapa[1].count(chr(78))==0 and mapa[2].count(chr(78))==0 and mapa[3].count(chr(78))==0 and mapa[4].count(chr(78))==0 and mapa[0].count(chr(78))==0 and mapa[5].count(chr(78))==0 and mapa[6].count(chr(78))==0 and mapa[7].count(chr(78))==0 and mapa[8].count(chr(78))==0:
+                    os. system ("cls")
+                    print (" Nivel ",eleccion)
+                    print ("¡A jugar!")
+                    print ("---------")
+                    imprimir_mapa()
+                    print ("---------")
+                    instrucciones()
+                    print ("¡¡¡FELICIDADES!!!")
+                    print ("Nivel",eleccion)
+                    print ("Completado")
+                    time.sleep(2)
+                    break
 
     #Tercer nivel
     def nivel3 (self):
@@ -1044,7 +1072,7 @@ class Sokoban:
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(48)
                     
-                    elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-chr(78)]==chr(32):
+                    elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(32):
                         mapa[per_col][per_row]=chr(88)
                         per_row=per_row-1
                         mapa[per_col][per_row]=chr(79)
@@ -1176,6 +1204,20 @@ class Sokoban:
                 else:
                     print ("Oprimiste la tecla equivocada")
                     time.sleep(1)
+
+                if mapa[0].count(chr(78))==0 and mapa[1].count(chr(78))==0 and mapa[2].count(chr(78))==0 and mapa[3].count(chr(78))==0 and mapa[4].count(chr(78))==0 and mapa[0].count(chr(78))==0 and mapa[5].count(chr(78))==0 and mapa[6].count(chr(78))==0 and mapa[7].count(chr(78))==0 and mapa[8].count(chr(78))==0:
+                    os. system ("cls")
+                    print (" Nivel ",eleccion)
+                    print ("¡A jugar!")
+                    print ("---------")
+                    imprimir_mapa()
+                    print ("---------")
+                    instrucciones()
+                    print ("¡¡¡FELICIDADES!!!")
+                    print ("Nivel",eleccion)
+                    print ("Completado")
+                    time.sleep(2)
+                    break
 
 pop = Sokoban()
 os.system("cls")
