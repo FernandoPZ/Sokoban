@@ -118,7 +118,7 @@ elif eleccion == "4":
     mapa = mapa4
 #Opcion5
 elif eleccion == "5":
-    mapa = mapa
+    mapa = mapa5
 #Opcion6
 elif eleccion == "6":
     mapa = mapa6
@@ -129,6 +129,7 @@ elif eleccion == "7":
 else:
     print ("ERROR!!!")
     print ("Seleccione una opcion valida")
+    time.sleep(1)
 
 #Impresor de mapa
 def imprimir_mapa ():
@@ -157,15 +158,6 @@ for search_col in mapa:
     contador_col=contador_col+1
     contador_row=0
 
-#Instrucciones
-def instrucciones ():
-    print ("Movimientos:    [W]   ")
-    print ("             [A][S][D]")
-    print ("[W] = Arriba")
-    print ("[S] = Abajo")
-    print ("[A] = Izquierda")
-    print ("[D] = Derecha")
-
 while True:
     os. system ("cls")
     print (" Nivel ",eleccion)
@@ -173,7 +165,12 @@ while True:
     print ("---------")
     imprimir_mapa()
     print ("---------")
-    instrucciones()
+    print ("Movimientos:    [W]   ")
+    print ("             [A][S][D]")
+    print ("[W] = Arriba")
+    print ("[S] = Abajo")
+    print ("[A] = Izquierda")
+    print ("[D] = Derecha")
     move = msvcrt.getch()
     move1 = ord(move)
     move = chr(move1)
@@ -195,13 +192,21 @@ while True:
             print ("Obstaculo enfrente")
             time.sleep(1)
 
-        elif mapa[per_col-1][per_row]==chr(32):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(32):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col-2][per_row]=chr(78)
             per_col=per_col-1
             mapa[per_col][per_row]=chr(79)
 
-        elif mapa[per_col-1][per_row]==chr(88):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col-2][per_row]=chr(77)
+            per_col=per_col-1
+            mapa[per_col][per_row]=chr(79)
+                    
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col-2][per_row]=chr(77)
             per_col=per_col-1
             mapa[per_col][per_row]=chr(48)
                     
@@ -239,21 +244,13 @@ while True:
             per_col=per_col-1
             mapa[per_col][per_row]=chr(48)
 
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(32):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col-2][per_row]=chr(78)
+        elif mapa[per_col-1][per_row]==chr(32):
+            mapa[per_col][per_row]=chr(32)
             per_col=per_col-1
             mapa[per_col][per_row]=chr(79)
 
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(78) and mapa[per_col-2][per_row]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col-2][per_row]=chr(77)
-            per_col=per_col-1
-            mapa[per_col][per_row]=chr(79)
-                    
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col-1][per_row]==chr(77) and mapa[per_col-2][per_row]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col-2][per_row]=chr(77)
+        elif mapa[per_col-1][per_row]==chr(88):
+            mapa[per_col][per_row]=chr(32)
             per_col=per_col-1
             mapa[per_col][per_row]=chr(48)
 
@@ -274,13 +271,21 @@ while True:
             print ("Obstaculo enfrente")
             time.sleep(1)
 
-        elif mapa[per_col+1][per_row]==chr(32):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(32):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col+2][per_row]=chr(78)
             per_col=per_col+1
             mapa[per_col][per_row]=chr(79)
 
-        elif mapa[per_col+1][per_row]==chr(88):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col+2][per_row]=chr(77)
+            per_col=per_col+1
+            mapa[per_col][per_row]=chr(79)
+                    
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col+2][per_row]=chr(77)
             per_col=per_col+1
             mapa[per_col][per_row]=chr(48)
 
@@ -318,21 +323,13 @@ while True:
             per_col=per_col+1
             mapa[per_col][per_row]=chr(48)
 
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(32):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col+2][per_row]=chr(78)
+        elif mapa[per_col+1][per_row]==chr(32):
+            mapa[per_col][per_row]=chr(32)
             per_col=per_col+1
             mapa[per_col][per_row]=chr(79)
 
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(78) and mapa[per_col+2][per_row]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col+2][per_row]=chr(77)
-            per_col=per_col+1
-            mapa[per_col][per_row]=chr(79)
-                    
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col+1][per_row]==chr(77) and mapa[per_col+2][per_row]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col+2][per_row]=chr(77)
+        elif mapa[per_col+1][per_row]==chr(88):
+            mapa[per_col][per_row]=chr(32)
             per_col=per_col+1
             mapa[per_col][per_row]=chr(48)
 
@@ -353,22 +350,30 @@ while True:
             print ("Obstaculo enfrente")
             time.sleep(1)
 
-        elif mapa[per_col][per_row-1]==chr(32):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col][per_row-2]=chr(77)
+            per_row=per_row-1
+            mapa[per_col][per_row]=chr(48)
+
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(32):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col][per_row-2]=chr(78)
             per_row=per_row-1
             mapa[per_col][per_row]=chr(79)
 
-        elif mapa[per_col][per_row-1]==chr(88):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col][per_row-2]=chr(77)
             per_row=per_row-1
-            mapa[per_col][per_row]=chr(48)
+            mapa[per_col][per_row]=chr(79)
 
         elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(88):
             mapa[per_col][per_row]=chr(88)
             per_row=per_row-1
             mapa[per_col][per_row]=chr(48)
                     
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-chr(78)]==chr(32):
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(32):
             mapa[per_col][per_row]=chr(88)
             per_row=per_row-1
             mapa[per_col][per_row]=chr(79)
@@ -397,23 +402,15 @@ while True:
             per_row=per_row-chr(78)
             mapa[per_col][per_row]=chr(48)
 
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col][per_row-2]=chr(77)
+        elif mapa[per_col][per_row-1]==chr(32):
+            mapa[per_col][per_row]=chr(32)
+            per_row=per_row-1
+            mapa[per_col][per_row]=chr(79)
+
+        elif mapa[per_col][per_row-1]==chr(88):
+            mapa[per_col][per_row]=chr(32)
             per_row=per_row-1
             mapa[per_col][per_row]=chr(48)
-
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(32):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col][per_row-2]=chr(78)
-            per_row=per_row-1
-            mapa[per_col][per_row]=chr(79)
-
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row-1]==chr(78) and mapa[per_col][per_row-2]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col][per_row-2]=chr(77)
-            per_row=per_row-1
-            mapa[per_col][per_row]=chr(79)
 
     elif move == "d":
         if mapa[per_col][per_row+1]==chr(35):
@@ -432,15 +429,23 @@ while True:
             print ("Obstaculo enfrente")
             time.sleep(1)
 
-        elif mapa[per_col][per_row+1]==chr(32):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col][per_row+2]=chr(77)
+            per_row=per_row+1
+            mapa[per_col][per_row]=chr(48)
+
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(32):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col][per_row+2]=chr(78)
             per_row=per_row+1
             mapa[per_col][per_row]=chr(79)
 
-        elif mapa[per_col][per_row+1]==chr(88):
-            mapa[per_col][per_row]=chr(32)
+        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(88):
+            mapa[per_col][per_row]=chr(88)
+            mapa[per_col][per_row+2]=chr(77)
             per_row=per_row+1
-            mapa[per_col][per_row]=chr(48)
+            mapa[per_col][per_row]=chr(79)
 
         elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(88):
             mapa[per_col][per_row]=chr(88)
@@ -476,23 +481,15 @@ while True:
             per_row=per_row+1
             mapa[per_col][per_row]=chr(48)
 
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(77) and mapa[per_col][per_row+2]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col][per_row+2]=chr(77)
+        elif mapa[per_col][per_row+1]==chr(32):
+            mapa[per_col][per_row]=chr(32)
+            per_row=per_row+1
+            mapa[per_col][per_row]=chr(79)
+
+        elif mapa[per_col][per_row+1]==chr(88):
+            mapa[per_col][per_row]=chr(32)
             per_row=per_row+1
             mapa[per_col][per_row]=chr(48)
-
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(32):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col][per_row+2]=chr(78)
-            per_row=per_row+1
-            mapa[per_col][per_row]=chr(79)
-
-        elif mapa[per_col][per_row]==chr(48) and mapa[per_col][per_row+1]==chr(78) and mapa[per_col][per_row+2]==chr(88):
-            mapa[per_col][per_row]=chr(88)
-            mapa[per_col][per_row+2]=chr(77)
-            per_row=per_row+1
-            mapa[per_col][per_row]=chr(79)
 
     elif move == "r":
         break
@@ -508,7 +505,12 @@ while True:
         print ("---------")
         imprimir_mapa()
         print ("---------")
-        instrucciones()
+        print ("Movimientos:    [W]   ")
+        print ("             [A][S][D]")
+        print ("[W] = Arriba")
+        print ("[S] = Abajo")
+        print ("[A] = Izquierda")
+        print ("[D] = Derecha")
         print ("¡¡¡FELICIDADES!!!")
         print ("Nivel",eleccion)
         print ("Completado")
