@@ -20,6 +20,8 @@ import os
 import msvcrt
 import time
 
+
+mapa = []
 #MAPAS
 #primer mapa
 mapa1 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
@@ -87,7 +89,7 @@ mapa7 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35
          [chr(35),chr(35),chr(35),chr(32),chr(88),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(32),chr(32),chr(78),chr(88),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(32),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(35),chr(78),chr(78),chr(32),chr(35),chr(35)],
+         [chr(35),chr(32),chr(32),chr(32),chr(78),chr(78),chr(32),chr(35),chr(35)],
          [chr(35),chr(32),chr(32),chr(79),chr(32),chr(32),chr(32),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
@@ -104,27 +106,33 @@ def imprimir_mapa ():
         smapa = ""
 
 #Metodo de juego
-def jugar ():
-    mapa = []
+def jugar():
+    #mapa = [[1,1,1,1,1],[2,2,2,2,2]]
     eleccion = ""
-    #Buscador de personaje
+    #busca personaje
     contador_col=0
     contador_row=0
     per_col=0
     per_row=0
+    print("Empesando a buscar")
+    print (mapa)
     for search_col in mapa:
         for search_row in search_col:
+            print("Buscando")
             if search_row != chr(79) and search_row != chr(48):
                 contador_row=contador_row+1
+                print("Nuev fila")
             else:
                 per_col=contador_col
                 per_row=contador_row
+                print ("buscando row", per_row)
+                print ("buscando col", per_col)
                 break
         contador_col=contador_col+1
         contador_row=0
-
+    print("Buscado")
     while True:
-        os. system ("cls")
+        #os. system ("cls")
         print (" Nivel ",eleccion)
         print ("¡A jugar!")
         print ("---------")
@@ -136,6 +144,8 @@ def jugar ():
         print ("[S] = Abajo")
         print ("[A] = Izquierda")
         print ("[D] = Derecha")
+        print ("row", per_row)
+        print ("col", per_col)
         move = msvcrt.getch()
         move1 = ord(move)
         move = chr(move1)
@@ -483,7 +493,7 @@ def jugar ():
 
             os. system ("cls")
             if eleccion == "2":
-                mapa == mapa3
+                mapa = mapa3
                 eleccion = "3"
                 jugar()
             elif eleccion == "3":
@@ -523,7 +533,7 @@ print("[5] Nivel 5")
 print("[6] Nivel 6")
 print("[7] Nivel 7")
 eleccion = input ("Escoja un nivel: \n")
-
+mapa = []
 #Opcion1
 if eleccion == "1":
     mapa = mapa1
@@ -552,3 +562,4 @@ else:
     time.sleep(1)
 
 jugar()
+

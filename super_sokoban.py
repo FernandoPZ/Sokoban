@@ -87,7 +87,7 @@ mapa7 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35
          [chr(35),chr(35),chr(35),chr(32),chr(88),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(32),chr(32),chr(78),chr(88),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(32),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(35),chr(78),chr(78),chr(32),chr(35),chr(35)],
+         [chr(35),chr(32),chr(32),chr(32),chr(78),chr(78),chr(32),chr(35),chr(35)],
          [chr(35),chr(32),chr(32),chr(79),chr(32),chr(32),chr(32),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
@@ -400,7 +400,7 @@ while True:
         elif mapa[per_col][per_row-1]==chr(77) and mapa[per_col][per_row-2]==chr(32):
             mapa[per_col][per_row]=chr(88)
             mapa[per_col][per_row-2]=chr(78)
-            per_row=per_row-chr(78)
+            per_row=per_row-1
             mapa[per_col][per_row]=chr(48)
 
         elif mapa[per_col][per_row-1]==chr(32):
@@ -540,7 +540,13 @@ while True:
             print ("Niveles completados")
             print ("-------------------")
             print ("     GAME OVER     ")
-            time .sleep(2)
+            time .sleep(0.5)
+            print(". . .")
+            time .sleep(0.5)
+            print(". . .")
+            time .sleep(0.5)
+            print(". . .")
+            time .sleep(0.5)
             print ("Gracias por jugar")
             time.sleep(1)
             break
