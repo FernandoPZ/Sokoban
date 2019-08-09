@@ -31,7 +31,7 @@ mapa1 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35
          [chr(35),chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Segundo mapa      
+#Segundo mapa
 mapa2 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(32),chr(78),chr(79),chr(35),chr(35),chr(35),chr(35),chr(35)],
@@ -92,6 +92,7 @@ mapa7 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
 
+#Menu del juego
 os.system("cls")
 print("¡Bienvenido a mi juego de sokoban!")
 print("--NIVELES--")
@@ -515,4 +516,31 @@ while True:
         print ("Nivel",eleccion)
         print ("Completado")
         time.sleep(2)
-        break
+
+        os. system ("cls")
+        if eleccion == "1":
+            mapa = mapa2
+            jugar()
+        if eleccion == "2":
+            mapa == mapa3
+            jugar()
+        elif eleccion == "3":
+            mapa = mapa4
+            jugar()
+        elif eleccion == "4":
+            mapa = mapa5
+            jugar()
+        elif eleccion == "5":
+            mapa = mapa6
+            jugar()
+        elif eleccion == "6":
+            mapa = mapa7
+            jugar()
+        elif eleccion == "7":
+            print ("Niveles completados")
+            print ("-------------------")
+            print ("     GAME OVER     ")
+            time .sleep(2)
+            print ("Gracias por jugar")
+            time.sleep(1)
+            break
