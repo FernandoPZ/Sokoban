@@ -500,7 +500,7 @@ def jugar ():
                 print ("-------------------")
                 print (" ¡¡¡FELICIDADES!!! ")
                 print ("     Nivel",eleccion)
-                print ("     Completado    ")
+                print ("   Completado    ")
                 time.sleep(2)
                 break
 
