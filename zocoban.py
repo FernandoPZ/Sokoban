@@ -3,7 +3,7 @@ Autor: Fernando Pérez Suárez
 Fecha de inicio: 13/07/2019
 Fecha de finalizacion: 
 Nombre: proyect_sokoban
-Versión: 8.0.0
+Versión: 10.0.0
 '''
 
 '''
@@ -30,7 +30,7 @@ time.sleep(1)
 print("¿Estas listo?")
 time.sleep(1)
 eleccion = input("Pulsa la tecla [Enter] paa continuar")
-#Impresor de mapa
+
 def jugar ():
     #MAPAS
     #primer mapa
@@ -489,34 +489,35 @@ def jugar ():
                     print (smapa)
                     smapa = ""
                 print ("---------")
-                print ("Movimientos:    [W]   ")
-                print ("             [A][S][D]")
-                print ("[W] = Arriba")
-                print ("[S] = Abajo")
-                print ("[A] = Izquierda")
-                print ("[D] = Derecha")
                 print ("¡¡¡FELICIDADES!!!")
                 print ("Nivel",eleccion)
                 print ("Completado")
                 time.sleep(2)
-                os. system ("cls")
-                if eleccion == 2:
-                    mapa = mapa3
-                elif eleccion == 3:
-                    mapa = mapa4
-                elif eleccion == 4:
-                    mapa = mapa5
-                elif eleccion == 5:
-                    mapa = mapa6
-                elif eleccion == 6:
-                    mapa = mapa7
-                elif eleccion == "7":
-                    print ("Niveles completados")
-                    print ("-------------------")
-                    print ("     GAME OVER     ")
-                    time .sleep(2)
-                    print ("Gracias por jugar")
-                    time.sleep(1)
-                    break
+                break
+
+        os. system ("cls")
+        print("Cambiando de nivel")
+        if eleccion == 1:
+            mapa = mapa2
+        elif eleccion == 2:
+            mapa = mapa3
+        elif eleccion == 3:
+            mapa = mapa4
+        elif eleccion == 4:
+            mapa = mapa5
+        elif eleccion == 5:
+            mapa = mapa6
+        elif eleccion == 6:
+            mapa = mapa7
+        elif eleccion == 7:
+            print ("Niveles completados")
+            print ("-------------------")
+            print ("     GAME OVER     ")
+            time .sleep(2)
+            print ("Gracias por jugar")
+            time.sleep(1)
+            break
+        print(eleccion)
+        print(mapa)
 
 jugar ()
