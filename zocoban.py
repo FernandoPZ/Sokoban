@@ -20,15 +20,18 @@ import os
 import msvcrt
 import time
 
-print("Bienvenido a mi juego")
-print("-------SOKOBAN-------")
+os. system ("cls")
+print("               Bienvenido a mi juego               ")
+print("               -------SOKOBAN-------               ")
 time.sleep(1)
-print("Hay que comenzar por algo facil")
+print("          Hay que comenzar por algo facil          ")
 time.sleep(1)
 print("En total son 7 niveles, uno mas dificil que el otro")
 time.sleep(1)
-print("¿Estas listo?")
+print("                   ¿Estas listo?                   ")
 time.sleep(1)
+print("")
+print("")
 eleccion = input("Pulsa la tecla [Enter] paa continuar")
 
 def jugar ():
@@ -128,9 +131,9 @@ def jugar ():
         #Jugada
         while True:
             os. system ("cls")
-            print (" Nivel ",eleccion)
-            print ("¡A jugar!")
-            print ("---------")
+            print ("     Nivel",eleccion)
+            print ("    ¡A jugar!     ")
+            print ("-------------------")
             #Impresor de mapa
             position_col=0
             position_row=0
@@ -141,7 +144,7 @@ def jugar ():
                 print (smapa)
                 smapa = ""
             #Impresor de mapa
-            print ("---------")
+            print ("-------------------")
             print ("Movimientos:    [W]   ")
             print ("             [A][S][D]")
             print ("[W] = Arriba")
@@ -469,6 +472,12 @@ def jugar ():
                     mapa[per_col][per_row]=chr(48)
 
             elif move == "r":
+                print("Ooooh, conoces el truco, eh?")
+                time.sleep(2.5)
+                print("")
+                time.sleep(0.5)
+                print("Tramposo...")
+                time.sleep(0.5)
                 break
 
             else:
@@ -477,9 +486,9 @@ def jugar ():
                                     
             if mapa[0].count(chr(78))==0 and mapa[1].count(chr(78))==0 and mapa[2].count(chr(78))==0 and mapa[3].count(chr(78))==0 and mapa[4].count(chr(78))==0 and mapa[0].count(chr(78))==0 and mapa[5].count(chr(78))==0 and mapa[6].count(chr(78))==0 and mapa[7].count(chr(78))==0 and mapa[8].count(chr(78))==0:
                 os. system ("cls")
-                print (" Nivel ",eleccion)
-                print ("¡A jugar!")
-                print ("---------")
+                print ("     Nivel",eleccion)
+                print ("    ¡A jugar!     ")
+                print ("-------------------")
                 position_col=0
                 position_row=0
                 smapa = ""
@@ -488,15 +497,14 @@ def jugar ():
                         smapa = smapa+" "+str(position_row)
                     print (smapa)
                     smapa = ""
-                print ("---------")
-                print ("¡¡¡FELICIDADES!!!")
-                print ("Nivel",eleccion)
-                print ("Completado")
+                print ("-------------------")
+                print (" ¡¡¡FELICIDADES!!! ")
+                print ("     Nivel",eleccion)
+                print ("     Completado    ")
                 time.sleep(2)
                 break
 
         os. system ("cls")
-        print("Cambiando de nivel")
         if eleccion == 1:
             mapa = mapa2
         elif eleccion == 2:
@@ -513,11 +521,10 @@ def jugar ():
             print ("Niveles completados")
             print ("-------------------")
             print ("     GAME OVER     ")
+            print ("-------------------")
             time .sleep(2)
             print ("Gracias por jugar")
             time.sleep(1)
             break
-        print(eleccion)
-        print(mapa)
 
 jugar ()
