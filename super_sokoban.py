@@ -25,11 +25,11 @@ import time
 mapa1 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(78),chr(32),chr(78),chr(88),chr(35),chr(35)],
+         [chr(35),chr(35),chr(35),chr(78),chr(32),chr(78),chr(32),chr(88),chr(35)],
          [chr(35),chr(88),chr(32),chr(78),chr(79),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(78),chr(35),chr(35),chr(35),chr(35)],
+         [chr(35),chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
          [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
 #Segundo mapa
 mapa2 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
@@ -520,22 +520,22 @@ while True:
         os. system ("cls")
         if eleccion == "1":
             mapa = mapa2
-            jugar()
+            #jugar()
         if eleccion == "2":
             mapa == mapa3
-            jugar()
+            #jugar()
         elif eleccion == "3":
             mapa = mapa4
-            jugar()
+            #jugar()
         elif eleccion == "4":
             mapa = mapa5
-            jugar()
+            #jugar()
         elif eleccion == "5":
             mapa = mapa6
-            jugar()
+            #jugar()
         elif eleccion == "6":
             mapa = mapa7
-            jugar()
+            #jugar()
         elif eleccion == "7":
             print ("Niveles completados")
             print ("-------------------")

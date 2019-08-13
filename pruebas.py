@@ -20,82 +20,119 @@ import os
 import msvcrt
 import time
 
-
-mapa = []
-#MAPAS
-#primer mapa
-mapa1 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(78),chr(32),chr(78),chr(88),chr(35),chr(35)],
-         [chr(35),chr(88),chr(32),chr(78),chr(79),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(78),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Segundo mapa      
-mapa2 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(78),chr(79),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(78),chr(78),chr(35),chr(35),chr(35),chr(88),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(88),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(32),chr(32),chr(32),chr(88),chr(35)],
-         [chr(35),chr(35),chr(32),chr(32),chr(32),chr(35),chr(32),chr(32),chr(35)],
-         [chr(35),chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Tercer mapa
-mapa3 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(79),chr(78),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(78),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(32),chr(78),chr(32),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(88),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(88),chr(88),chr(77),chr(88),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Cuarto mapa
-mapa4 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(79),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(32),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(35),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(88),chr(35),chr(32),chr(35),chr(32),chr(32),chr(35),chr(35)],
-         [chr(35),chr(88),chr(78),chr(32),chr(32),chr(35),chr(32),chr(35),chr(35)],
-         [chr(35),chr(88),chr(32),chr(32),chr(32),chr(78),chr(32),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Quinto mapa
-mapa5 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(32),chr(32),chr(32),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(78),chr(78),chr(78),chr(32),chr(35),chr(35)],
-         [chr(35),chr(79),chr(32),chr(78),chr(88),chr(88),chr(32),chr(35),chr(35)],
-         [chr(35),chr(32),chr(78),chr(88),chr(88),chr(88),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(32),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Sexto mapa
-mapa6 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(32),chr(79),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(78),chr(88),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(88),chr(78),chr(88),chr(32),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(77),chr(78),chr(32),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-#Septimo mapa
-mapa7 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(88),chr(88),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(32),chr(88),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(32),chr(32),chr(78),chr(88),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(32),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(32),chr(78),chr(78),chr(32),chr(35),chr(35)],
-         [chr(35),chr(32),chr(32),chr(79),chr(32),chr(32),chr(32),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
-         [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
-
 #Impresor de mapa
-def imprimir_mapa ():
+def jugar ():
+    #MAPAS
+    #primer mapa
+    mapa1 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(78),chr(32),chr(78),chr(88),chr(35),chr(35)],
+            [chr(35),chr(88),chr(32),chr(78),chr(79),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(78),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(88),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+    #Segundo mapa      
+    mapa2 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(78),chr(79),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(78),chr(78),chr(35),chr(35),chr(35),chr(88),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(35),chr(35),chr(35),chr(88),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(32),chr(32),chr(32),chr(88),chr(35)],
+            [chr(35),chr(35),chr(32),chr(32),chr(32),chr(35),chr(32),chr(32),chr(35)],
+            [chr(35),chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+    #Tercer mapa
+    mapa3 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(79),chr(78),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(78),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(32),chr(78),chr(32),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(88),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(88),chr(88),chr(77),chr(88),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+    #Cuarto mapa
+    mapa4 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(79),chr(32),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(32),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(35),chr(32),chr(35),chr(35),chr(35)],
+            [chr(35),chr(88),chr(35),chr(32),chr(35),chr(32),chr(32),chr(35),chr(35)],
+            [chr(35),chr(88),chr(78),chr(32),chr(32),chr(35),chr(32),chr(35),chr(35)],
+            [chr(35),chr(88),chr(32),chr(32),chr(32),chr(78),chr(32),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+    #Quinto mapa
+    mapa5 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(32),chr(32),chr(32),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(78),chr(78),chr(78),chr(32),chr(35),chr(35)],
+            [chr(35),chr(79),chr(32),chr(78),chr(88),chr(88),chr(32),chr(35),chr(35)],
+            [chr(35),chr(32),chr(78),chr(88),chr(88),chr(88),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(32),chr(32),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+    #Sexto mapa
+    mapa6 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(32),chr(79),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(32),chr(78),chr(88),chr(32),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(32),chr(88),chr(78),chr(88),chr(32),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(77),chr(78),chr(32),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(32),chr(32),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+    #Septimo mapa
+    mapa7 = [[chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(88),chr(88),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(32),chr(88),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(32),chr(32),chr(78),chr(88),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(32),chr(78),chr(32),chr(32),chr(35),chr(35),chr(35)],
+            [chr(35),chr(32),chr(32),chr(32),chr(78),chr(78),chr(32),chr(35),chr(35)],
+            [chr(35),chr(32),chr(32),chr(79),chr(32),chr(32),chr(32),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)],
+            [chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35),chr(35)]]
+
+    #Menu del juego
+    os.system("cls")
+    print("¡Bienvenido a mi juego de sokoban!")
+    print("--NIVELES--")
+    print("[1] Nivel 1")
+    print("[2] Nivel 2")
+    print("[3] Nivel 3")
+    print("[4] Nivel 4")
+    print("[5] Nivel 5")
+    print("[6] Nivel 6")
+    print("[7] Nivel 7")
+    eleccion = input ("Escoja un nivel: \n")
+    #Opcion1
+    if eleccion == "1":
+        mapa = mapa1
+    #Opcion2
+    elif eleccion == "2":
+        mapa = mapa2
+    #Opcion3
+    elif eleccion == "3":
+        mapa = mapa3
+    #Opcion4
+    elif eleccion == "4":
+        mapa = mapa4
+    #Opcion5
+    elif eleccion == "5":
+        mapa = mapa5
+    #Opcion6
+    elif eleccion == "6":
+        mapa = mapa6
+    #opcion7
+    elif eleccion == "7":
+        mapa = mapa7
+    #error
+    else:
+        print ("ERROR!!!")
+        print ("Seleccione una opcion valida")
+        time.sleep(1)
+
     position_col=0
     position_row=0
     smapa = ""
@@ -104,18 +141,13 @@ def imprimir_mapa ():
             smapa = smapa+" "+str(position_row)
         print (smapa)
         smapa = ""
-
-#Metodo de juego
-def jugar():
-    #mapa = [[1,1,1,1,1],[2,2,2,2,2]]
-    eleccion = ""
-    #busca personaje
+    #buscador de personaje
     contador_col=0
     contador_row=0
     per_col=0
     per_row=0
     print("Empesando a buscar")
-    print (mapa)
+    #print (mapa)
     for search_col in mapa:
         for search_row in search_col:
             print("Buscando")
@@ -131,12 +163,20 @@ def jugar():
         contador_col=contador_col+1
         contador_row=0
     print("Buscado")
+    #Jugada
     while True:
         #os. system ("cls")
         print (" Nivel ",eleccion)
         print ("¡A jugar!")
         print ("---------")
-        imprimir_mapa()
+        position_col=0
+        position_row=0
+        smapa = ""
+        for position_col in mapa:
+            for position_row in position_col:
+                smapa = smapa+" "+str(position_row)
+            print (smapa)
+            smapa = ""
         print ("---------")
         print ("Movimientos:    [W]   ")
         print ("             [A][S][D]")
@@ -478,7 +518,14 @@ def jugar():
             print (" Nivel ",eleccion)
             print ("¡A jugar!")
             print ("---------")
-            imprimir_mapa()
+            position_col=0
+            position_row=0
+            smapa = ""
+            for position_col in mapa:
+                for position_row in position_col:
+                    smapa = smapa+" "+str(position_row)
+                print (smapa)
+                smapa = ""
             print ("---------")
             print ("Movimientos:    [W]   ")
             print ("             [A][S][D]")
@@ -521,45 +568,4 @@ def jugar():
                 time.sleep(1)
                 break
 
-#Menu del juego
-os.system("cls")
-print("¡Bienvenido a mi juego de sokoban!")
-print("--NIVELES--")
-print("[1] Nivel 1")
-print("[2] Nivel 2")
-print("[3] Nivel 3")
-print("[4] Nivel 4")
-print("[5] Nivel 5")
-print("[6] Nivel 6")
-print("[7] Nivel 7")
-eleccion = input ("Escoja un nivel: \n")
-mapa = []
-#Opcion1
-if eleccion == "1":
-    mapa = mapa1
-#Opcion2
-elif eleccion == "2":
-    mapa = mapa2
-#Opcion3
-elif eleccion == "3":
-    mapa = mapa3
-#Opcion4
-elif eleccion == "4":
-    mapa = mapa4
-#Opcion5
-elif eleccion == "5":
-    mapa = mapa5
-#Opcion6
-elif eleccion == "6":
-    mapa = mapa6
-#opcion7
-elif eleccion == "7":
-    mapa = mapa7
-#error
-else:
-    print ("ERROR!!!")
-    print ("Seleccione una opcion valida")
-    time.sleep(1)
-
-jugar()
-
+jugar ()
